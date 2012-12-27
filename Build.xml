@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<project name="test" default="clean">
+  <target name="compile">
+  	<javac srcdir="src" destdir="classes" />
+  </target>
+	
+	<target name="jar" depends="compile">
+		<jar destfile="ghosty.jar" basedir="classes" />
+  </target>
+	
+	<target name="javadoc" depends="jar">
+    <javadoc sourcepath="src" destdir="docs" />
+  </target>
+  		<target name="clean" depends="javadoc">
+    <delete dir="classes" />
+  			<mkdir dir="classes" />
+  </target>
+</project>
