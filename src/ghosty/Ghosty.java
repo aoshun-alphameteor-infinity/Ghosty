@@ -6,8 +6,14 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.IOException;
 
+//other import
+import java.nio.channels.FileChannel;
+import java.nio.channels.FileLock;
+import java.util.Scanner;
+
 public class Ghosty {
 private static boolean debug=false;
+private static FileLock lock;
 
 private static boolean options() {
 		String s=null;
@@ -36,7 +42,8 @@ private static boolean options() {
 	
 	
 	public static void main (String args){
-		
+		FileChannel working= FileChannel.open(path, options);
+		lock=working.lock();
 		
 	}
 }
