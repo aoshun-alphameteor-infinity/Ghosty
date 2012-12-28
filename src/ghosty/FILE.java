@@ -23,6 +23,10 @@ public class FILE {
 	  return numberelt;
   }
   
+  protected void setNumberelt(int number){
+	  numberelt=number;
+  }
+  
   @Override
   public String toString(){
 	  return location.toString() + " contains " + numberelt;

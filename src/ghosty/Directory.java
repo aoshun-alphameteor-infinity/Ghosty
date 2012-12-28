@@ -22,15 +22,11 @@ public class Directory {
 	 */
 	///this is the representation
 	private List<FILE> result;
-	///this one is used for keep the recursive order
-	private List<FILE> inCurrentDir;
 	///it is the number of elements in a directory
 	private int numberelt;
 	
-	
 	public Directory(){
 		result=new ArrayList<FILE>();
-		inCurrentDir=new ArrayList<FILE>();
 	}
 	
 	/**
@@ -55,6 +51,7 @@ public class Directory {
 				if(!dir.getFileName().equals(".ghosty")) 
 				{
 					numberelt=0;
+					result.add(new FILE(dir,numberelt));
 				}
 				
 				return CONTINUE; 
@@ -66,7 +63,7 @@ public class Directory {
 	         {
 				if(!file.getParent().getFileName().equals(".ghosty"))
 	             {
-					inCurrentDir.add(new FILE(file,-1));
+					result.add(new FILE(file,-1));
 					numberelt++;
 	             }
 				return CONTINUE;
@@ -78,10 +75,9 @@ public class Directory {
 	         {
 	             if (e == null) {
 	                 if(!dir.getFileName().equals(".ghosty"))
-	                 {
-	                	 result.add(new FILE(dir,numberelt));
-	                	 result.addAll(inCurrentDir);
-	                	 inCurrentDir.clear();
+	                 {	                	 
+	                	 result.get(result.size()-(numberelt+1)).setNumberelt(numberelt);	                	 
+
 	                 }
 	                 return CONTINUE;
 	             } else {

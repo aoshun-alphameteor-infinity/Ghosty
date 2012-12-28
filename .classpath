@@ -7,5 +7,6 @@
 	<classpathentry kind="lib" path="D:/Program Files (x86)/eclipse/external libraries/drive/libs/google-api-client-android2-1.10.3-beta.jar"/>
 	<classpathentry kind="lib" path="D:/Program Files (x86)/eclipse/external libraries/drive/libs/google-api-client-appengine-1.10.3-beta.jar"/>
 	<classpathentry kind="lib" path="D:/Program Files (x86)/eclipse/external libraries/drive/libs/google-api-client-servlet-1.10.3-beta.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files (x86)/eclipse/external libraries/drive/google-api-services-drive-v2-rev5-1.7.2-beta-javadoc.jar"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>
