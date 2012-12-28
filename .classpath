@@ -2,5 +2,10 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="D:/Program Files (x86)/eclipse/external libraries/drive/google-api-services-drive-v2-rev5-1.7.2-beta.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files (x86)/eclipse/external libraries/drive/libs/google-api-client-1.10.3-beta.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files (x86)/eclipse/external libraries/drive/libs/google-api-client-android2-1.10.3-beta.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files (x86)/eclipse/external libraries/drive/libs/google-api-client-appengine-1.10.3-beta.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files (x86)/eclipse/external libraries/drive/libs/google-api-client-servlet-1.10.3-beta.jar"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>

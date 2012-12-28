@@ -9,6 +9,8 @@ import java.io.IOException;
 //other import
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
+import java.nio.file.OpenOption;
+import java.nio.file.Path;
 import java.util.Scanner;
 
 public class Ghosty {
@@ -27,6 +29,8 @@ private static boolean options() {
 			else if(s.equals("--debug")) debug=true;
 			}
 		}
+		
+		sc.close();
 		return true;
 		
 	}
@@ -41,7 +45,9 @@ private static boolean options() {
 	}
 	
 	
-	public static void main (String args){
+	public static void main (String args) throws Exception{
+		Path path = null;
+		OpenOption options = null;
 		FileChannel working= FileChannel.open(path, options);
 		lock=working.lock();
 		
