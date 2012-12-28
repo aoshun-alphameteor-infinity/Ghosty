@@ -13,6 +13,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.SimpleFileVisitor;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.nio.file.attribute.*;
 
@@ -21,12 +22,12 @@ public class Directory {
 	 * this three fields are used for create a representation of the file tree in which we work;
 	 */
 	///this is the representation
-	private List<FILE> result;
+	private List<FILE> filetree;
 	///it is the number of elements in a directory
 	private int numberelt;
 	
 	public Directory(){
-		result=new ArrayList<FILE>();
+		filetree=new ArrayList<FILE>();
 	}
 	
 	/**
@@ -51,7 +52,7 @@ public class Directory {
 				if(!dir.getFileName().equals(".ghosty")) 
 				{
 					numberelt=0;
-					result.add(new FILE(dir,numberelt));
+					filetree.add(new FILE(dir,numberelt));
 				}
 				
 				return CONTINUE; 
@@ -63,7 +64,7 @@ public class Directory {
 	         {
 				if(!file.getParent().getFileName().equals(".ghosty"))
 	             {
-					result.add(new FILE(file,-1));
+					filetree.add(new FILE(file,-1));
 					numberelt++;
 	             }
 				return CONTINUE;
@@ -76,7 +77,7 @@ public class Directory {
 	             if (e == null) {
 	                 if(!dir.getFileName().equals(".ghosty"))
 	                 {	                	 
-	                	 result.get(result.size()-(numberelt+1)).setNumberelt(numberelt);	                	 
+	                	 filetree.get(filetree.size()-numberelt-1).setNumberelt(numberelt);	                	 
 
 	                 }
 	                 return CONTINUE;
@@ -90,19 +91,24 @@ public class Directory {
 	}
 
 	
-	public List<FILE> getResult(){
-		return result;
+	
+	public List<FILE> getFileTree(){
+		return filetree;
 	}
 	
-	public void clearResult(){
-		result.clear();
+	public void clearFileTree(){
+		filetree.clear();
+	}
+	
+	public Iterator<FILE> fileTreeIterator(){
+		return filetree.iterator();
 	}
 	
 	public static void main (String[] args) throws IOException{
 		Directory dir=new Directory();
 		Path p=Paths.get(".");
 			dir.fileTreeMaker(p);
-			List<FILE> res=dir.getResult();
+			List<FILE> res=dir.getFileTree();
 			for(FILE f:res){
 				System.out.println(f.toString());
 			}
