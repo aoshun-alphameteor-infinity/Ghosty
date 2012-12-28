@@ -50,6 +50,21 @@ private static boolean options() {
 		Path path = null;
 		FileChannel working= FileChannel.open(path, CREATE);
 		lock=working.lock();
+		// test watcher
+		while(true){
+			
+			Directory dir=new Directory();
+			try {
+				dir.fileTreeMaker(FileSystems.getDefault().getPath("."));
+			} catch (IOException e) {
+				
+				e.printStackTrace();
+			}
+			Watcher w=new Watcher(dir);
+			Iterator<FILE> it=dir.fileTreeIterator();
+			w.watch(it);
+	
+		}
 		
 	}
 }
