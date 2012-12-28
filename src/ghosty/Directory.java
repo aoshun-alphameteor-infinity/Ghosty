@@ -60,7 +60,7 @@ public class Directory {
 	         public FileVisitResult visitFile(Path file, BasicFileAttributes attrs)
 	             throws IOException
 	         {
-				if(!file.getParent().equals(".ghosty"))
+				if(!file.getParent().getFileName().equals(".ghosty"))
 	             {
 					inCurrentDir.add(new FILE(file,-1));
 					numberelt++;
