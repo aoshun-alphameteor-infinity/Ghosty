@@ -22,5 +22,10 @@ public class FILE {
   public int getNumberelt(){
 	  return numberelt;
   }
+  
+  @Override
+  public String toString(){
+	  return location.toString() + " contains " + numberelt;
+  }
  
 }
