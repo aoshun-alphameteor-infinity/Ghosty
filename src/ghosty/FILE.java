@@ -5,7 +5,7 @@ import java.nio.file.Path;
 public class FILE {
  private Path location;
  /**
-  * if it is a file, this number is 0 
+  * if it is a file, this number is -1 
   * else it represent the number of element
   */
  private int numberelt;
