@@ -7,6 +7,7 @@ import java.io.OutputStream;
 import java.io.IOException;
 
 //other import
+import static java.nio.file.StandardOpenOption.*;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.nio.file.OpenOption;
@@ -47,8 +48,7 @@ private static boolean options() {
 	
 	public static void main (String args) throws Exception{
 		Path path = null;
-		OpenOption options = null;
-		FileChannel working= FileChannel.open(path, options);
+		FileChannel working= FileChannel.open(path, CREATE);
 		lock=working.lock();
 		
 	}
