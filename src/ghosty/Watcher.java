@@ -9,6 +9,9 @@ import java.nio.file.WatchKey;
 import java.nio.file.WatchService;
 import java.util.Iterator;
 
+
+// bug: java.nio.file.NotDirectoryException
+
 public class Watcher {
   private Directory dir;
 	
