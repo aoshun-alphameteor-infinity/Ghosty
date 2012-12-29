@@ -100,7 +100,7 @@ public class Directory {
 		filetree.clear();
 	}
 	
-	public void removeFile(FILE f){
+	public void removeFILE(FILE f){
 		filetree.remove(f);
 	}
 	
