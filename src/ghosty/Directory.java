@@ -10,7 +10,6 @@ import static java.nio.file.FileVisitResult.*;
 import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.nio.file.SimpleFileVisitor;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -18,6 +17,8 @@ import java.util.List;
 import java.nio.file.attribute.*;
 
 public class Directory {
+	private Path location;
+	
 	/**
 	 * this three fields are used for create a representation of the file tree in which we work;
 	 */
@@ -26,7 +27,8 @@ public class Directory {
 	///it is the number of elements in a directory
 	private int numberelt;
 	
-	public Directory(){
+	public Directory(Path location){
+		this.location=location;
 		filetree=new ArrayList<FILE>();
 	}
 	
@@ -112,15 +114,7 @@ public class Directory {
 		return filetree.iterator();
 	}
 	
-	public static void main (String[] args) throws IOException{
-		Directory dir=new Directory();
-		Path p=Paths.get(".");
-			dir.fileTreeMaker(p);
-			List<FILE> res=dir.getFileTree();
-			for(FILE f:res){
-				System.out.println(f.toString());
-			}
-	
+	public Path getDirectoryPath(){
+		return location;
 	}
-	
 }
