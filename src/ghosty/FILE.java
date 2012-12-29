@@ -3,7 +3,7 @@ package ghosty;
 
 import java.nio.file.Path;
 
-public class FILE {
+public class FILE implements Comparable<FILE>{
  private Path location;
  
  private boolean isDir;
@@ -21,6 +21,10 @@ public class FILE {
 	  return isDir;
   }
 
+  @Override
+  public int compareTo(FILE f){
+	  return f.location.compareTo(location);
+  }
   
   @Override
   public boolean equals(Object o){

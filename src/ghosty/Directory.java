@@ -19,7 +19,7 @@ public class Directory {
 	///this is the representation
 	private Set<FILE> filetree;
 
-	
+
 	public Directory(Path location){
 		this.location=location;
 		filetree=new TreeSet<FILE>();
