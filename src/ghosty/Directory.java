@@ -75,8 +75,9 @@ public class Directory {
 	         {
 	             if (e == null) {
 	                 if(!dir.getFileName().equals(".ghosty"))
-	                 {	                	 
-	                	 filetree.get(filetree.size()-numberelt-1).setNumberelt(numberelt);	                	 
+	                 {
+	                	 
+	                	 filetree.get(filetree.indexOf(new FILE(dir,0))).setNumberelt(numberelt);	                	 
 
 	                 }
 	                 return CONTINUE;
@@ -89,10 +90,19 @@ public class Directory {
 		});
 	}
 
+	/**
+	 * 
+	 * @param newlocation is the new Path to synchronize the files
+	 * 
+	 * set the location of the synchronization directory
+	 */
 	public void setLocation(Path newlocation){
 		location=newlocation;
 	}
 	
+	/**
+	 * @return the list which represent the fileTree
+	 */
 	public List<FILE> getFileTree(){
 		return filetree;
 	}
