@@ -28,6 +28,15 @@ public class FILE {
   }
   
   @Override
+  public boolean equals(Object o){
+	  if(!(o instanceof FILE))return false;
+	  FILE f=(FILE)o;
+	  if(f.numberelt!=numberelt)return false;
+	  if(!location.equals(f.location))return false;
+	  return true;
+  }
+  
+  @Override
   public String toString(){
 	  return location.toString() + " contains " + numberelt;
   }

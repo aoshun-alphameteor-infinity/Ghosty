@@ -96,8 +96,16 @@ public class Directory {
 		return filetree;
 	}
 	
+	public FILE[] getFileTreeArray(){
+		return filetree.toArray(null);
+	}
+	
 	public void clearFileTree(){
 		filetree.clear();
+	}
+	
+	public void removeFile(FILE f){
+		filetree.remove(f);
 	}
 	
 	public Iterator<FILE> fileTreeIterator(){
