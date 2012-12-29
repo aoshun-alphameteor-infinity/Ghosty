@@ -15,6 +15,21 @@ import com.google.api.services.drive.model.File;
 
 public class Synchronization {
 	
+	public static InputStream download(Drive host,File f){
+		String url=f.getDownloadUrl();
+		if(url == null)return null;
+		if(url.length() <= 0)return null;
+		GenericUrl downurl=new GenericUrl(url);
+		try{
+			HttpResponse answer= host.getRequestFactory().buildGetRequest(downurl).execute();
+			return answer.getContent();
+		}catch(Exception e){
+			System.out.println("error\n"+e.getMessage());
+			return null;	
+		}
+	
+	}
+	
 	public static File Update(Drive host,String fileId, Path newContent){
 		try {
 			File present=host.files().get(fileId).execute();
@@ -24,14 +39,14 @@ public class Synchronization {
 			File result=host.files().update(fileId, present, content).execute();
 			
 			return result;
-		} catch (IOException e) {
+		} catch (Exception e) {
 			System.out.println("error\n"+e.getMessage());
 			return null;
 		}
 	}
 	
 	
-	public static File uploadFile(Drive host, String extendedfilename, String parentId, Path file){
+	public static File upload(Drive host, String extendedfilename, String parentId, Path file){
 		File meta=new File();
 		meta.setTitle(extendedfilename);
 		
