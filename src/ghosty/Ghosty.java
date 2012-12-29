@@ -10,8 +10,10 @@ import java.io.IOException;
 import static java.nio.file.StandardOpenOption.*;
 import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
+import java.nio.file.FileSystems;
 import java.nio.file.OpenOption;
 import java.nio.file.Path;
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class Ghosty {

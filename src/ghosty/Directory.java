@@ -116,4 +116,15 @@ public class Directory {
 	public Path getDirectoryPath(){
 		return location;
 	}
+	
+	public FILE[] updateFileTree(){
+		FILE[] tmp=filetree.toArray(null);
+		filetree.clear();
+		try {
+			this.fileTreeMaker(location);
+		} catch (Exception e) {
+			System.out.println("error\n"+e.getMessage());
+		}
+		return tmp;
+	}
 }
