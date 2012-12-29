@@ -128,7 +128,7 @@ public class Directory {
 	}
 	
 	public FILE[] updateFileTree(){
-		FILE[] tmp=filetree.toArray(null);
+		FILE[] tmp=(FILE[]) filetree.toArray();
 		filetree.clear();
 		try {
 			this.fileTreeMaker();

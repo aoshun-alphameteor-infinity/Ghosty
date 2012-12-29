@@ -13,6 +13,7 @@ import java.nio.channels.FileLock;
 import java.nio.file.FileSystems;
 import java.nio.file.OpenOption;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -48,10 +49,10 @@ private static boolean options() {
 	}
 	
 	
-	public static void main (String args) throws Exception{
-		Path path = null;
-		FileChannel working= FileChannel.open(path, CREATE);
-		lock=working.lock();
+	public static void main (String[] args) throws Exception{
+		//Path path = Paths.get("");
+		//FileChannel working= FileChannel.open(path, CREATE);
+		//lock=working.lock();
 		// test watcher
 		while(true){
 			
