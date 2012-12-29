@@ -8,5 +8,24 @@
 	<classpathentry kind="lib" path="D:/Program Files (x86)/eclipse/external libraries/drive/libs/google-api-client-appengine-1.10.3-beta.jar"/>
 	<classpathentry kind="lib" path="D:/Program Files (x86)/eclipse/external libraries/drive/libs/google-api-client-servlet-1.10.3-beta.jar"/>
 	<classpathentry kind="lib" path="D:/Program Files (x86)/eclipse/external libraries/drive/google-api-services-drive-v2-rev5-1.7.2-beta-javadoc.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files (x86)/eclipse/external libraries/drive/libs/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files (x86)/eclipse/external libraries/drive/libs/google-oauth-client-1.10.1-beta.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files (x86)/eclipse/external libraries/drive/libs/google-oauth-client-appengine-1.10.1-beta.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files (x86)/eclipse/external libraries/drive/libs/google-oauth-client-servlet-1.10.1-beta.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files (x86)/eclipse/external libraries/drive/libs/gson-2.1.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files (x86)/eclipse/external libraries/drive/libs/guava-11.0.1.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files (x86)/eclipse/external libraries/drive/libs/httpclient-4.0.3.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files (x86)/eclipse/external libraries/drive/libs/httpcore-4.0.1.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files (x86)/eclipse/external libraries/drive/libs/jackson-core-asl-1.9.4.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files (x86)/eclipse/external libraries/drive/libs/jdo2-api-2.3-eb.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files (x86)/eclipse/external libraries/drive/libs/jsr305-1.3.9.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files (x86)/eclipse/external libraries/drive/libs/protobuf-java-2.2.0.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files (x86)/eclipse/external libraries/drive/libs/transaction-api-1.1.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files (x86)/eclipse/external libraries/drive/libs/xpp3-1.1.4c.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files (x86)/eclipse/external libraries/drive/libs/google-http-client-1.10.3-beta.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files (x86)/eclipse/external libraries/drive/libs/google-http-client-android2-1.10.3-beta.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files (x86)/eclipse/external libraries/drive/libs/google-http-client-android3-1.10.3-beta.jar"/>
+	<classpathentry kind="lib" path="D:/Program Files (x86)/eclipse/external libraries/drive/libs/google-http-client-appengine-1.10.3-beta.jar"/>
 	<classpathentry kind="output" path="classes"/>
+	<referencedentry kind="lib" path="D:/Program Files (x86)/eclipse/external libraries/drive/libs/google-http-client-1.10.3-beta.jar" sourcepath="D:/Program Files (x86)/eclipse/external libraries/drive"/>
 </classpath>
