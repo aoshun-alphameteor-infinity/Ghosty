@@ -31,7 +31,7 @@ public class Watcher {
 	for (WatchEvent<?> object : k.pollEvents()) {
         if (object.kind() == StandardWatchEventKinds.ENTRY_MODIFY) {
         	System.out.println("Modify: " + object.context().toString());
-            if(f.getNumberelt()!=0)
+            if(f.getNumberelt()!=-1)
             watch(it);
         }
         if (object.kind() == StandardWatchEventKinds.ENTRY_DELETE) {
