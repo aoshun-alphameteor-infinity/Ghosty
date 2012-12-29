@@ -8,25 +8,21 @@ import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.SimpleFileVisitor;
-import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 import java.nio.file.attribute.*;
 
 public class Directory {
 	private Path location;
 	
-	/**
-	 * this three fields are used for create a representation of the file tree in which we work;
-	 */
 	///this is the representation
-	private List<FILE> filetree;
-	///it is the number of elements in a directory
-	private int numberelt;
+	private Set<FILE> filetree;
+
 	
 	public Directory(Path location){
 		this.location=location;
-		filetree=new ArrayList<FILE>();
+		filetree=new TreeSet<FILE>();
 	}
 	
 	/**
@@ -50,8 +46,7 @@ public class Directory {
 			 {
 				if(!dir.getFileName().equals(".ghosty")) 
 				{
-					numberelt=0;
-					filetree.add(new FILE(dir,numberelt));
+					filetree.add(new FILE(dir,true));
 				}
 				
 				return CONTINUE; 
@@ -63,8 +58,7 @@ public class Directory {
 	         {
 				if(!file.getParent().getFileName().equals(".ghosty"))
 	             {
-					filetree.add(new FILE(file,-1));
-					numberelt++;
+					filetree.add(new FILE(file,false));
 	             }
 				return CONTINUE;
 	         }
@@ -74,12 +68,7 @@ public class Directory {
 	             throws IOException
 	         {
 	             if (e == null) {
-	                 if(!dir.getFileName().equals(".ghosty"))
-	                 {
-	                	 
-	                	 filetree.get(filetree.indexOf(new FILE(dir,0))).setNumberelt(numberelt);	                	 
-
-	                 }
+	               
 	                 return CONTINUE;
 	             } else {
 	                 // directory iteration failed
@@ -103,7 +92,7 @@ public class Directory {
 	/**
 	 * @return the list which represent the fileTree
 	 */
-	public List<FILE> getFileTree(){
+	public Set<FILE> getFileTree(){
 		return filetree;
 	}
 	
@@ -123,15 +112,7 @@ public class Directory {
 		return location;
 	}
 	
-	public FILE[] updateFileTree(){
-		FILE[] tmp1=new FILE[filetree.size()];
-		FILE[] tmp2=(FILE[]) filetree.toArray(tmp1);
-		filetree.clear();
-		try {
-			this.fileTreeMaker();
-		} catch (Exception e) {
-			System.out.println("error\n"+e.getMessage());
-		}
-		return tmp2;
+	public void AddFILE(FILE f){
+		filetree.add(f);
 	}
 }
