@@ -1,9 +1,8 @@
 package ghosty;
 
-import java.io.IOException;
+
 import java.io.InputStream;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Arrays;
 
 import com.google.api.client.http.GenericUrl;
@@ -11,6 +10,7 @@ import com.google.api.client.http.HttpResponse;
 import com.google.api.client.http.FileContent;
 import com.google.api.services.drive.Drive;
 import com.google.api.services.drive.model.File;
+import com.google.api.services.drive.model.ParentReference;
 
 
 public class Synchronization {
@@ -51,9 +51,8 @@ public class Synchronization {
 		meta.setTitle(extendedfilename);
 		
 		if(parentId !=null && parentId.length()>0){
-			meta.setParents(Arrays.asList(new File.ParentReference().setId(parentId)));
+			meta.setParents(Arrays.asList(new ParentReference().setId(parentId)));
 		}
-		
 		FileContent content=new FileContent(null,file.toFile());
 		try{
 			File result= host.files().insert(meta,content).execute();
