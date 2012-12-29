@@ -108,7 +108,7 @@ public class Directory {
 	}
 	
 	public FILE[] getFileTreeArray(){
-		return filetree.toArray(null);
+		return (FILE[]) filetree.toArray();
 	}
 	
 	public void clearFileTree(){
