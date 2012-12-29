@@ -107,10 +107,6 @@ public class Directory {
 		return filetree;
 	}
 	
-	public FILE[] getFileTreeArray(){
-		return (FILE[]) filetree.toArray();
-	}
-	
 	public void clearFileTree(){
 		filetree.clear();
 	}
@@ -128,13 +124,14 @@ public class Directory {
 	}
 	
 	public FILE[] updateFileTree(){
-		FILE[] tmp=(FILE[]) filetree.toArray();
+		FILE[] tmp1=new FILE[filetree.size()];
+		FILE[] tmp2=(FILE[]) filetree.toArray(tmp1);
 		filetree.clear();
 		try {
 			this.fileTreeMaker();
 		} catch (Exception e) {
 			System.out.println("error\n"+e.getMessage());
 		}
-		return tmp;
+		return tmp2;
 	}
 }
