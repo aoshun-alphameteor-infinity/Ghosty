@@ -3,6 +3,7 @@ package ghosty;
 import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.nio.file.StandardWatchEventKinds;
 import java.nio.file.WatchEvent;
 import java.nio.file.WatchKey;
@@ -10,7 +11,7 @@ import java.nio.file.WatchService;
 import java.util.Iterator;
 
 
-// bug: java.nio.file.NotDirectoryException
+
 
 public class Watcher {
   private Directory dir;
@@ -31,18 +32,21 @@ WatchKey k = w.take();
 for (WatchEvent<?> object : k.pollEvents()) {
         if (object.kind() == StandardWatchEventKinds.ENTRY_MODIFY) {
          System.out.println("Modify: " + object.context().toString());
-         this.dir.updateFileTree();
-           
+         
         }
         if (object.kind() == StandardWatchEventKinds.ENTRY_DELETE) {
-        	
-        	this.dir.updateFileTree();
+          
+        	Path d=Paths.get(dir.getDirectoryPath().toString(),object.context().toString());
+        	this.dir.removeFILE(new FILE(d,d.toFile().isDirectory()));
             System.out.println("Delete: " + object.context().toString());
         }
         if (object.kind() == StandardWatchEventKinds.ENTRY_CREATE) {
         	
-        	this.dir.updateFileTree();
-            System.out.println("Created: " + object.context().toString());
+        	
+        	Path d=Paths.get(dir.getDirectoryPath().toString(),object.context().toString());
+        	
+        	this.dir.AddFILE(new FILE(d,d.toFile().isDirectory()));
+            //System.out.println("Created: " + object.context().toString().);
         }
         if (object.kind() == StandardWatchEventKinds.OVERFLOW) {
             System.out.println("lost events!");
