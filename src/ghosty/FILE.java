@@ -20,21 +20,7 @@ public class FILE {
   public boolean isDirectory(){
 	  return isDir;
   }
-  /**
-   * this method determine if a file is a directory or not
-   * @param test is the path of the file which need to be test
-   * @return true if the file is a directory, false in other case
-   */
-  public static boolean FileIsDirectory(Path test){
-	  Directory tmp=new Directory(test);
-	  try {
-		tmp.fileTreeMaker();
-	} catch (Exception e) {
-		System.out.println("error\n"+e.getMessage());
-	}
-	  if(tmp.getFileTree().size()!=1)return true;
-	  else return false;
-  }
+
   
   @Override
   public boolean equals(Object o){
