@@ -47,9 +47,10 @@ public class Directory {
 				if(!dir.getFileName().equals(".ghosty")) 
 				{
 					filetree.add(new FILE(dir,true));
+					return CONTINUE; 
 				}
+				return SKIP_SUBTREE;
 				
-				return CONTINUE; 
 			 }
 			 
 			@Override
