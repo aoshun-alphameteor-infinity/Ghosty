@@ -63,8 +63,8 @@ private static boolean options() {
 				e.printStackTrace();
 			}
 			Watcher w=new Watcher(dir);
-			Iterator<FILE> it=dir.fileTreeIterator();
-			w.watch(it);
+			
+			w.watch();
 	
 		}
 		
