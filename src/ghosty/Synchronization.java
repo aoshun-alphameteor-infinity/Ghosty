@@ -15,6 +15,22 @@ import com.google.api.services.drive.model.File;
 
 public class Synchronization {
 	
+	public static File Update(Drive host,String fileId, Path newContent){
+		try {
+			File present=host.files().get(fileId).execute();
+			
+			FileContent content=new FileContent(null,newContent.toFile());
+			
+			File result=host.files().update(fileId, present, content).execute();
+			
+			return result;
+		} catch (IOException e) {
+			System.out.println("error\n"+e.getMessage());
+			return null;
+		}
+	}
+	
+	
 	public static File uploadFile(Drive host, String extendedfilename, String parentId, Path file){
 		File meta=new File();
 		meta.setTitle(extendedfilename);
