@@ -89,7 +89,9 @@ public class Directory {
 		});
 	}
 
-	
+	public void setLocation(Path newlocation){
+		location=newlocation;
+	}
 	
 	public List<FILE> getFileTree(){
 		return filetree;
