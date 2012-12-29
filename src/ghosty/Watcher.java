@@ -14,51 +14,56 @@ import java.util.Iterator;
 
 public class Watcher {
   private Directory dir;
-	
-	
-	public Watcher(Directory dir) {
-		this.dir=dir;
-	}
 
-	public void watch(Iterator<FILE> it){
-		try{
-			WatchService w=FileSystems.getDefault().newWatchService();
-	
-	if(!it.hasNext()) return;
-	FILE f=it.next();
-	f.getLocation().register(w, StandardWatchEventKinds.ENTRY_CREATE, StandardWatchEventKinds.ENTRY_MODIFY, StandardWatchEventKinds.OVERFLOW, StandardWatchEventKinds.ENTRY_DELETE);
-	WatchKey k = w.take();
-	for (WatchEvent<?> object : k.pollEvents()) {
+
+public Watcher(Directory dir) {
+this.dir=dir;
+}
+
+public void watch(){
+try{
+WatchService w=FileSystems.getDefault().newWatchService();
+Iterator<FILE> it=dir.fileTreeIterator();
+while(it.hasNext()) {
+FILE f=it.next();
+f.getLocation().register(w, StandardWatchEventKinds.ENTRY_CREATE, StandardWatchEventKinds.ENTRY_MODIFY, StandardWatchEventKinds.OVERFLOW, StandardWatchEventKinds.ENTRY_DELETE);
+WatchKey k = w.take();
+for (WatchEvent<?> object : k.pollEvents()) {
         if (object.kind() == StandardWatchEventKinds.ENTRY_MODIFY) {
-        	System.out.println("Modify: " + object.context().toString());
-            if(f.getNumberelt()!=-1)
-            watch(it);
+         System.out.println("Modify: " + object.context().toString());
+         this.dir.updateFileTree();
+           
         }
         if (object.kind() == StandardWatchEventKinds.ENTRY_DELETE) {
+        	
+        	this.dir.updateFileTree();
             System.out.println("Delete: " + object.context().toString());
         }
         if (object.kind() == StandardWatchEventKinds.ENTRY_CREATE) {
+        	
+        	this.dir.updateFileTree();
             System.out.println("Created: " + object.context().toString());
         }
         if (object.kind() == StandardWatchEventKinds.OVERFLOW) {
             System.out.println("lost events!");
         }
     }
-			
-} catch (IOException e) {
-	
-	e.printStackTrace();
-} catch (InterruptedException e) {
-	
-	e.printStackTrace();
 }
-	}
-	
-	
-	
+
+} catch (IOException e) {
+
+e.printStackTrace();
+} catch (InterruptedException e) {
+
+e.printStackTrace();
+}
+}
+
+
+
 public void notifySynchro(){
-		
-	}
+
+}
 
 
 }
