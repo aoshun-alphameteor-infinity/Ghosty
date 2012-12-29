@@ -55,9 +55,9 @@ private static boolean options() {
 		// test watcher
 		while(true){
 			
-			Directory dir=new Directory();
+			Directory dir=new Directory(FileSystems.getDefault().getPath("."));
 			try {
-				dir.fileTreeMaker(FileSystems.getDefault().getPath("."));
+				dir.fileTreeMaker();
 			} catch (IOException e) {
 				
 				e.printStackTrace();
