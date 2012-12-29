@@ -41,7 +41,7 @@ public class Watcher {
             System.out.println("Created: " + object.context().toString());
         }
         if (object.kind() == StandardWatchEventKinds.OVERFLOW) {
-            System.out.println("Ã©vÃ©nement perdu!");
+            System.out.println("lost events!");
         }
     }
 			
