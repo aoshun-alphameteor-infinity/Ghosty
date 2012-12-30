@@ -1,8 +1,10 @@
 package ghosty;
 
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.nio.file.Path;
-
+import java.security.MessageDigest;
 public class FILE implements Comparable<FILE>{
  private Path location;
  
@@ -19,6 +21,26 @@ public class FILE implements Comparable<FILE>{
   
   public boolean isDirectory(){
 	  return isDir;
+  }
+  
+  public byte[] getMD5(){
+	  int test=0;
+	  if(!location.toFile().isFile())return null;
+	  if(!location.toFile().canRead())return null;
+	  try {
+		MessageDigest md5= MessageDigest.getInstance("MD5");
+		md5.reset();
+		InputStream content=new FileInputStream(location.toFile());
+		while(true){
+				if((test=content.read())!=-1)md5.update((byte) test);
+				else break;
+		}
+		content.close();
+		return md5.digest();
+	} catch (Exception e) {
+		System.out.println("error\n"+e.getMessage());
+		return null;
+	}
   }
 
   @Override
