@@ -4,7 +4,9 @@ package ghosty;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.security.MessageDigest;
+import java.util.Arrays;
 public class FILE implements Comparable<FILE>{
  private Path location;
  
@@ -31,9 +33,8 @@ public class FILE implements Comparable<FILE>{
 		MessageDigest md5= MessageDigest.getInstance("MD5");
 		md5.reset();
 		InputStream content=new FileInputStream(location.toFile());
-		while(true){
-				if((test=content.read())!=-1)md5.update((byte) test);
-				else break;
+		while((test=content.read())!=-1){
+				md5.update((byte) test);
 		}
 		content.close();
 		return md5.digest();
@@ -63,4 +64,13 @@ public class FILE implements Comparable<FILE>{
 	  else return location.toString()+" is a file";
   }
  
+  public static void main(String[] args){
+	  FILE f1=new FILE(Paths.get("..", "test1.txt"),false);
+	  FILE f2=new FILE(Paths.get("..", "test2.txt"),false);
+	  FILE f3=new FILE(Paths.get("..", "test3.txt"),false);
+	  
+	  boolean b1=Arrays.equals(f1.getMD5(), f2.getMD5());
+	  boolean b2=Arrays.equals(f1.getMD5(), f3.getMD5());
+	  System.out.println("test1 :"+b1+"\n"+"test2 :"+b2);
+  }
 }
